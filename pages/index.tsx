@@ -3,6 +3,8 @@ import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
+import { Header } from '../components/base/Header';
+
 export default function Home() {
   return (
     <>
@@ -12,7 +14,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+
+      <Header />
+      {/* <main>
         <div>
           <p>
             Get started by editing&nbsp;
@@ -78,7 +82,7 @@ export default function Home() {
             <p>Instantly deploy your Next.js site to a shareable URL with&nbsp;Vercel.</p>
           </a>
         </div>
-      </main>
+      </main> */}
     </>
   );
 }
