@@ -27,7 +27,9 @@ export const Header: FC = () => {
                 ))}
               </StyledNav>
             </NavAndSignIn>
-            <Button variant="secondary">Вход</Button>
+            <Button size="small" variant="secondary">
+              Вход
+            </Button>
           </HeaderStyles>
         </Container>
       </StyledHeader>
