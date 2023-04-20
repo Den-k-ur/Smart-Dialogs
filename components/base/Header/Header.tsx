@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import { Button } from 'base/Button';
+
 import { Container } from '../Container/Container';
 
 import { NavLink } from '../NavLink';
@@ -7,21 +9,28 @@ import { NavLink } from '../NavLink';
 import { NAV_ITEMS } from './constants';
 
 import Logo from './images/logo.svg';
-import { HeaderContainer, StyledNav } from './styles';
+import { HeaderContainer, HeaderStyles, NavAndSignIn, StyledHeader, StyledNav } from './styles';
 
 export const Header: FC = () => {
   return (
-    <Container>
-      <HeaderContainer>
-        <Logo />
-        <StyledNav>
-          {NAV_ITEMS.map((item) => (
-            <NavLink href={item.href} key={item.key}>
-              {item.label}
-            </NavLink>
-          ))}
-        </StyledNav>
-      </HeaderContainer>
-    </Container>
+    <HeaderContainer>
+      <StyledHeader>
+        <Container>
+          <HeaderStyles>
+            <NavAndSignIn>
+              <Logo />
+              <StyledNav>
+                {NAV_ITEMS.map((item) => (
+                  <NavLink href={item.href} key={item.key}>
+                    {item.label}
+                  </NavLink>
+                ))}
+              </StyledNav>
+            </NavAndSignIn>
+            <Button variant="secondary">Вход</Button>
+          </HeaderStyles>
+        </Container>
+      </StyledHeader>
+    </HeaderContainer>
   );
 };

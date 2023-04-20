@@ -15,7 +15,7 @@ const fontSizes = {
   custom: customValue,
 };
 
-export const theme = {
+export const Theme = {
   colors,
   fontSizes,
 };

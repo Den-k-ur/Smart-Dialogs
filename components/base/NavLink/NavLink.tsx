@@ -4,14 +4,14 @@ import Link from 'next/link';
 
 import { StyledLink } from './styles';
 
-type NavLinkType = {
+type NavLinkTypes = {
   href: string;
   children: ReactElement | ReactElement[] | string;
 };
 
-export const NavLink: FC<NavLinkType> = ({ href, children }) => {
+export const NavLink: FC<NavLinkTypes> = ({ href, children }) => {
   return (
-    <Link prefetch href={href} passHref>
+    <Link prefetch href={href} passHref legacyBehavior>
       <StyledLink>{children}</StyledLink>
     </Link>
   );
