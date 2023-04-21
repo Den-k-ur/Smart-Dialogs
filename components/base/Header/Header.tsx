@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 
 import { Button } from 'base/Button';
 
@@ -20,9 +20,9 @@ import {
 export const Header: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
+  const toggleMenu = useCallback(() => {
     setIsMenuOpen(!isMenuOpen);
-  };
+  }, [isMenuOpen]);
 
   return (
     <HeaderContainer>
