@@ -1,20 +1,27 @@
 import { Noto_Sans } from 'next/font/google';
+import localFont from 'next/font/local';
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
-const NotoSans = Noto_Sans({
-  subsets: ['cyrillic'],
-  weight: '400',
+// const NotoSans = Noto_Sans({
+//   subsets: ['cyrillic'],
+//   weight: '400',
+// });
+
+const NotoSans = localFont({
+  src: [
+    {
+      path: '../public/fonts/NotoSans/NotoSans-Regular.ttf',
+      weight: '400',
+    },
+  ],
 });
 
 export const GlobalStyles = createGlobalStyle`
 
   ${normalize}
 
-  @font-face{
-    font-family: 'Noto Sans';
-    
-  }
+
   body {
     font-size: 16px;
     scroll-behavior: smooth;
