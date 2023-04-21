@@ -15,23 +15,23 @@ export const Header: FC = () => {
   return (
     <HeaderContainer>
       <StyledHeader>
-        <Container>
-          <HeaderStyles>
-            <NavAndSignIn>
-              <Logo />
-              <StyledNav>
-                {NAV_ITEMS.map((item) => (
-                  <NavLink href={item.href} key={item.key}>
-                    {item.label}
-                  </NavLink>
-                ))}
-              </StyledNav>
-            </NavAndSignIn>
+        <HeaderStyles>
+          <NavAndSignIn>
+            <Logo />
+            <StyledNav>
+              {NAV_ITEMS.map((item) => (
+                <NavLink href={item.href} key={item.key}>
+                  {item.label}
+                </NavLink>
+              ))}
+            </StyledNav>
+          </NavAndSignIn>
+          <div>
             <Button size="small" variant="secondary">
               Вход
             </Button>
-          </HeaderStyles>
-        </Container>
+          </div>
+        </HeaderStyles>
       </StyledHeader>
     </HeaderContainer>
   );

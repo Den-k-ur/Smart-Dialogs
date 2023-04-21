@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
-export const StyledDiv = styled.div`
+export const StyledContainer = styled.div`
   display: flex;
-  max-width: 1320px;
+  flex-direction: column;
+  max-width: 1360px;
   width: 100%;
   padding: 0 20px;
+`;
+export const StyledDiv = styled.div`
+  display: flex;
+  justify-content: center;
 `;
