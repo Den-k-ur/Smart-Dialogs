@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Theme } from 'theme/theme';
+import { Theme } from 'theme/index';
 
 export const MainPageContentBlock = styled.main`
   display: flex;
@@ -11,6 +11,9 @@ export const MainPageContentBlock = styled.main`
 export const DescriptionAndPhoto = styled.div`
   display: flex;
   gap: 82px;
+  @media screen and (max-width: ${Theme.sizes.lg}) {
+    flex-direction: column;
+  }
 `;
 
 export const HeaderBlock = styled.div`
@@ -49,6 +52,9 @@ export const PhotoBlock = styled.div`
   height: 100vh;
   background-color: rgba(79, 70, 229, 0.2);
   border-radius: 10px;
+  @media screen and (max-width: ${Theme.sizes.lg}) {
+    display: none;
+  }
 `;
 
 export const Photo = styled.div`
@@ -61,6 +67,9 @@ export const Photo = styled.div`
   border-radius: 10px;
   margin-left: 40px;
   margin-top: 40px;
+  @media screen and (max-width: ${Theme.sizes.lg}) {
+    display: none;
+  }
 `;
 
 export const DignityCard = styled.div`
@@ -79,4 +88,7 @@ export const DignityCardBlock = styled.div`
   gap: 30px;
   margin-top: 120px;
   margin-bottom: 76px;
+  @media screen and (max-width: ${Theme.sizes.lg}) {
+    flex-direction: column;
+  }
 `;

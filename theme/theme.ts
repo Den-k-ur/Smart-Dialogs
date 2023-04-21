@@ -9,6 +9,14 @@ const colors = {
   gray: '#E4E4E7',
 };
 
+const sizes = {
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
+};
+
 export const Theme = {
   colors,
+  sizes,
 };

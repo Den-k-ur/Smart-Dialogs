@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 
 import { Button } from 'base/Button';
-import { Container } from 'base/Container/Container';
 
 import { Typography } from 'base/Typography';
 
