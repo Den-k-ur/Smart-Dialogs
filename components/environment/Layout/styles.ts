@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
-export const StyledDiv = styled.div`
-  background-image: url('/background.svg');
+import Background from 'public/background.svg';
+
+export const StyledBackground = styled(Background)`
+  position: absolute;
+  max-width: 100%;
+  z-index: -1;
+  right: 0;
+  top: 0;
 `;

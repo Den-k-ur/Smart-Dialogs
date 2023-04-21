@@ -11,8 +11,20 @@ import { normalize } from 'styled-normalize';
 const NotoSans = localFont({
   src: [
     {
-      path: '../public/fonts/NotoSans/NotoSans-Regular.ttf',
+      path: '../public/fonts/NotoSans/NotoSans-Regular.woff2',
       weight: '400',
+    },
+    {
+      path: '../public/fonts/NotoSans/NotoSans-Medium.woff2',
+      weight: '500',
+    },
+    {
+      path: '../public/fonts/NotoSans/NotoSans-SemiBold.woff2',
+      weight: '600',
+    },
+    {
+      path: '../public/fonts/NotoSans/NotoSans-Bold.woff2',
+      weight: '700',
     },
   ],
 });
@@ -32,6 +44,10 @@ export const GlobalStyles = createGlobalStyle`
 
   a {
     text-decoration:none;
+  }
+
+  p {
+    margin: 0;
   }
 
   h1,h2,h3,h4,h5,h6 {

@@ -2,8 +2,6 @@ import React, { FC } from 'react';
 
 import { Button } from 'base/Button';
 
-import { Container } from '../Container/Container';
-
 import { NavLink } from '../NavLink';
 
 import { NAV_ITEMS } from './constants';
