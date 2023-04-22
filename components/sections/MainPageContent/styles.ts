@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
+import { Typography } from 'base/Typography';
+
 import { Theme } from 'theme/index';
+
+export const StyledTypography = styled(Typography)`
+  @media (max-width: ${Theme.sizes.md}) {
+    font-size: 20px;
+  }
+`;
 
 export const MainPageContentBlock = styled.main`
   display: flex;
@@ -24,10 +32,19 @@ export const NormalHeader = styled.h1`
   font-weight: 700;
   font-size: 64px;
   line-height: 120%;
+  @media screen and (max-width: ${Theme.sizes.md}) {
+    font-size: 45px;
+  }
 `;
 
-export const ColoredHeader = styled(NormalHeader)`
+export const ColoredHeader = styled.span`
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 120%;
   color: ${Theme.colors.darkBlue};
+  @media screen and (max-width: ${Theme.sizes.md}) {
+    font-size: 45px;
+  }
 `;
 
 export const DescriptionAndApplication = styled.div`
@@ -38,7 +55,9 @@ export const DescriptionAndApplication = styled.div`
 
 export const DescriptionBlock = styled.div`
   max-width: 675px;
-  white-space: wrap;
+  @media (max-width: ${Theme.sizes.md}) {
+    font-size: 20px;
+  }
 `;
 
 export const ApplicationButton = styled.div`
@@ -89,6 +108,7 @@ export const DignityCardBlock = styled.div`
   margin-top: 120px;
   margin-bottom: 76px;
   @media screen and (max-width: ${Theme.sizes.lg}) {
-    flex-direction: column;
+    max-width: 646px;
+    flex-wrap: wrap;
   }
 `;

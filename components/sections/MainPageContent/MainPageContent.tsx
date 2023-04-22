@@ -18,6 +18,7 @@ import {
   NormalHeader,
   Photo,
   PhotoBlock,
+  StyledTypography,
 } from './styles';
 
 export const MainPageContent: FC = () => {
@@ -26,15 +27,16 @@ export const MainPageContent: FC = () => {
       <DescriptionAndPhoto>
         <DescriptionAndApplication>
           <HeaderBlock>
-            <NormalHeader>Голосовые ассистенты</NormalHeader>
-            <ColoredHeader>SmartDialog</ColoredHeader>
+            <NormalHeader>
+              Голосовые ассистенты <ColoredHeader>SmartDialog</ColoredHeader>
+            </NormalHeader>
           </HeaderBlock>
           <DescriptionBlock>
-            <Typography variant="style5">
+            <StyledTypography variant="style5">
               В звонках бот ведёт осмысленный диалог
               <br /> и совершенно неотличим от живого оператора. Автоматизируйте телефонные звонки с
               помощью ИИ.
-            </Typography>
+            </StyledTypography>
           </DescriptionBlock>
           <ApplicationButton>
             <Button variant="primary" size="medium">

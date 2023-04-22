@@ -2,9 +2,21 @@ import styled from 'styled-components';
 
 import { Theme } from 'theme/index';
 
-type MenuTypes = {
-  isOpen: boolean;
-};
+import Logo from './images/logo.svg';
+import MobileLogo from './images/mobileLogo.svg';
+
+export const StyledLogo = styled(Logo)`
+  @media screen and (max-width: ${Theme.sizes.md}) {
+    display: none;
+  }
+`;
+
+export const StyledMobileLogo = styled(MobileLogo)`
+  display: none;
+  @media screen and (max-width: ${Theme.sizes.md}) {
+    display: inline-block;
+  }
+`;
 
 export const StyledHeader = styled.div`
   display: flex;
@@ -19,17 +31,14 @@ export const StyledHeader = styled.div`
 export const HeaderContainer = styled.header`
   display: flex;
   padding-top: 45px;
-  @media screen and (max-width: ${Theme.sizes.lg}) {
-    flex-direction: column;
-  }
 `;
 
-export const StyledNav = styled.nav<MenuTypes>`
+export const StyledNav = styled.nav`
   display: flex;
   gap: 60px;
   align-items: center;
-  @media screen and (max-width: ${Theme.sizes.lg}) {
-    display: ${(props) => (props.isOpen ? 'flex' : 'none')};
+  @media screen and (max-width: ${Theme.sizes.md}) {
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: 20px;
@@ -39,27 +48,24 @@ export const StyledNav = styled.nav<MenuTypes>`
 
 export const NavAndSignIn = styled.div`
   display: flex;
+  flex: 1 0 auto;
+  justify-content: space-between;
   @media screen and (max-width: ${Theme.sizes.lg}) {
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
     gap: 20px;
   }
-  gap: 147px;
 `;
 
 export const HeaderStyles = styled.div`
   display: flex;
   flex: 1 0 auto;
-  justify-content: space-between;
+  gap: 143px;
   @media screen and (max-width: ${Theme.sizes.lg}) {
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
+    gap: 20px;
     align-items: center;
-    gap: 40px;
   }
-`;
-
-export const ButtonWrapper = styled.div`
-  display: flex;
 `;

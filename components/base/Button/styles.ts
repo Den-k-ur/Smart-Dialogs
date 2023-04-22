@@ -36,4 +36,7 @@ export const StyledButton = styled.button<ButtonTypes>`
   cursor: pointer;
   font-weight: ${(props) => buttonSizes[props.size].fontWeight};
   font-size: ${(props) => buttonSizes[props.size].fontSize};
+  @media screen and (max-width: ${Theme.sizes.md}) {
+    order: -1;
+  }
 `;

@@ -1,48 +1,39 @@
 import React, { FC, useCallback, useState } from 'react';
 
+import { Burger } from 'base/Burger';
+
 import { Button } from 'base/Button';
 
-import { NavLink } from '../NavLink';
-
-import { NAV_ITEMS } from './constants';
-
-import Logo from './images/logo.svg';
+import { NavMenu } from './components/NavMenu';
 
 import {
-  ButtonWrapper,
   HeaderContainer,
   HeaderStyles,
   NavAndSignIn,
   StyledHeader,
-  StyledNav,
+  StyledLogo,
+  StyledMobileLogo,
 } from './styles';
 
 export const Header: FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isToggle, setToggle] = useState(false);
 
-  const toggleMenu = useCallback(() => {
-    setIsMenuOpen(!isMenuOpen);
-  }, [isMenuOpen]);
+  const handleSetToggle = useCallback(() => {
+    setToggle(!isToggle);
+  }, [isToggle]);
 
   return (
     <HeaderContainer>
       <StyledHeader>
         <HeaderStyles>
+          <StyledLogo />
+          <StyledMobileLogo />
           <NavAndSignIn>
-            <Logo onClick={toggleMenu} />
-
-            <StyledNav isOpen={isMenuOpen}>
-              {NAV_ITEMS.map((item) => (
-                <NavLink href={item.href} key={item.key}>
-                  {item.label}
-                </NavLink>
-              ))}
-            </StyledNav>
-            <ButtonWrapper>
-              <Button size="small" variant="secondary">
-                Вход
-              </Button>
-            </ButtonWrapper>
+            <NavMenu isOpen={isToggle} />
+            <Button size="small" variant="secondary">
+              Вход
+            </Button>
+            <Burger setOpen={handleSetToggle} open={isToggle} />
           </NavAndSignIn>
         </HeaderStyles>
       </StyledHeader>
