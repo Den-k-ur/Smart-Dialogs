@@ -1,5 +1,4 @@
 // for passing of custom value
-const customValue = (val: number) => `${val}px`;
 
 const colors = {
   black: '#000',
