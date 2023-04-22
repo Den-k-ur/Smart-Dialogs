@@ -97,6 +97,7 @@ export const DignityCard = styled.div`
   border: 1px solid ${Theme.colors.gray};
   padding: 25px;
   max-width: 308px;
+  width: 308px;
   gap: 16px;
   border-radius: 10px;
   background-color: ${Theme.colors.white};

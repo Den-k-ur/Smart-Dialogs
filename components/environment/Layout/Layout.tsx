@@ -3,7 +3,7 @@ import React, { FC, ReactElement } from 'react';
 import { Container } from 'base/Container';
 import { Header } from 'base/Header';
 
-import { StyledBackground } from './styles';
+import { StyledBackground, StyledImage } from './styles';
 
 type LayoutTypes = {
   children: ReactElement | ReactElement[] | string;
@@ -12,7 +12,9 @@ type LayoutTypes = {
 export const Layout: FC<LayoutTypes> = ({ children }) => {
   return (
     <Container>
-      <StyledBackground />
+      <StyledBackground>
+        <StyledImage />
+      </StyledBackground>
       <Header />
       <div>{children}</div>
     </Container>

@@ -9,8 +9,8 @@ export const StyledBurger = styled.button<BurgerTypes>`
   display: none;
   @media screen and (max-width: ${Theme.sizes.md}) {
     position: absolute;
-    top: 6%;
-    right: 3%;
+    top: 6vh;
+    right: 3vw;
     display: flex;
     flex-direction: column;
     gap: 5px;
