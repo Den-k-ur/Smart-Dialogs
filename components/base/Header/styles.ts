@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
+import Logo from 'public/logo.svg';
+
 import { Theme } from 'theme/index';
 
-import Logo from './images/logo.svg';
 import MobileLogo from './images/mobileLogo.svg';
 
 export const StyledLogo = styled(Logo)`
