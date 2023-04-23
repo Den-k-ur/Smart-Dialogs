@@ -1,6 +1,4 @@
-import React, { FC } from 'react';
-
-import Link from 'next/link';
+import React, { ChangeEvent, FC, useState } from 'react';
 
 import { Button } from 'base/Button';
 import { Checkbox } from 'base/Checkbox';
@@ -12,7 +10,9 @@ import { PasswordInput } from 'base/Input';
 import { Input } from 'base/Input/Input';
 import { Typography } from 'base/Typography';
 import HidePasswordIcon from 'public/hidePasswordIcon.svg';
+import ShowPasswordIcon from 'public/showPasswordIcon.svg';
 
+import { useAuthorization } from './hooks';
 import {
   AuthBlock,
   AuthPageContainer,
@@ -31,6 +31,11 @@ import {
 } from './styles';
 
 export const AuthorizationPage: FC = () => {
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+
+  const { handleLogin, TogglePassword, isHide } = useAuthorization();
+
   return (
     <StyledAuthPage>
       <Container>
@@ -43,12 +48,21 @@ export const AuthorizationPage: FC = () => {
                 <div>
                   <InputsAndUnderInputs>
                     <InputsBlock>
-                      <Input placeholder="email" />
+                      <Input
+                        placeholder="email"
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                      />
                       <div>
-                        <StyledIcon>
-                          <HidePasswordIcon />
+                        <StyledIcon onClick={TogglePassword}>
+                          {isHide ? <ShowPasswordIcon /> : <HidePasswordIcon />}
                         </StyledIcon>
-                        <PasswordInput placeholder="Пароль" isHide={true} />
+                        <PasswordInput
+                          placeholder="Пароль"
+                          isHide={isHide}
+                          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                            setPassword(e.target.value)
+                          }
+                        />
                       </div>
                     </InputsBlock>
                     <UnderInputsBlockAndButton>
@@ -58,7 +72,11 @@ export const AuthorizationPage: FC = () => {
                           Забыли пароль?
                         </StyledLink>
                       </UnderInputsBlock>
-                      <Button size="large" variant="primary">
+                      <Button
+                        size="large"
+                        variant="primary"
+                        onClick={() => handleLogin({ email: email, password: password })}
+                      >
                         Войти
                       </Button>
                     </UnderInputsBlockAndButton>
