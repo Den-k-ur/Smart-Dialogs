@@ -1,7 +1,8 @@
-export type AuthorizationState = {
+export type UserState = {
   hasError: boolean;
   error: string | null;
   isSuccess: boolean;
   isLoading: boolean;
-  isAuth: boolean;
+  firstName: string | null;
+  lastName: string | null;
 };

@@ -4,7 +4,7 @@ import { tokenServices } from 'store/authorization';
 
 const refresh_URL = 'http://localhost:3002/refresh-token';
 const api = axios.create({
-  baseURL: 'http://localhost:3002/',
+  baseURL: 'http://localhost:3002',
 });
 
 api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
@@ -23,7 +23,7 @@ api.interceptors.response.use(
   },
   async (err) => {
     const originalConfig = err.config;
-    if (!originalConfig.url.includes('auth/') && err.response) {
+    if (!originalConfig.url.includes('login/') && err.response) {
       if (
         err.response.status === 401 &&
         !originalConfig.retry &&

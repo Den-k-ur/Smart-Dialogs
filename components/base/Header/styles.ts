@@ -77,3 +77,15 @@ export const StyledButton = styled(Button)`
     order: -1;
   }
 `;
+
+export const UserMenuButton = styled(Button)`
+  background-color: inherit;
+  display: flex;
+  gap: 8px;
+  color: ${Theme.colors.darkBlue};
+  padding: 0;
+  text-decoration: underline;
+  :hover {
+    background-color: inherit;
+  }
+`;

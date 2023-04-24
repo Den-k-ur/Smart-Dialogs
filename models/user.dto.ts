@@ -3,3 +3,7 @@ export type UserLoginDTO = {
   password: string;
   rememberMe: boolean;
 };
+export type UserDTO = {
+  firstName: string | null;
+  lastName: string | null;
+};

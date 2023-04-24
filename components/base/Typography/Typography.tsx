@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 type TypographyTypes = {
-  variant: 'style1' | 'style2' | 'style3' | 'style4' | 'style5' | 'style6' | 'style7';
+  variant: 'style1' | 'style2' | 'style3' | 'style4' | 'style5' | 'style6' | 'style7' | 'styleLink';
 };
 
 const TypographySizes = {
@@ -41,6 +41,11 @@ const TypographySizes = {
     fontSize: '16px',
     fontWeight: '400',
     lineHeight: '138%',
+  },
+  styleLink: {
+    fontSize: '16px',
+    fontWeight: '500',
+    lineHeight: '150%',
   },
 };
 

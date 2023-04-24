@@ -23,7 +23,16 @@ function createToken(payload) {
     }
 }
 function verifyToken(token) {
-    return (0, jsonwebtoken_1.verify)(token, SECRET_KEY, function (err, decode) { return (decode !== undefined ? decode : err); });
+    try {
+        var decoded = (0, jsonwebtoken_1.verify)(token, SECRET_KEY);
+        return decoded;
+    }
+    catch (err) {
+        if (err instanceof jsonwebtoken_1.JsonWebTokenError) {
+            throw new Error('Invalid token');
+        }
+        throw err;
+    }
 }
 function isAuthenticated(_a) {
     var email = _a.email, password = _a.password;
@@ -65,6 +74,16 @@ server.post('/auth/refresh-token', function (req, res) {
         var status_3 = 401;
         var message = 'Error: refresh_token is not valid';
         res.status(status_3).json({ status: status_3, message: message });
+    }
+});
+server.get('/user', function (req, res) {
+    var _a, _b;
+    var token = (_b = (_a = req === null || req === void 0 ? void 0 : req.headers) === null || _a === void 0 ? void 0 : _a.authorization) === null || _b === void 0 ? void 0 : _b.split(' ')[1];
+    if (token) {
+        var decoded_1 = verifyToken(token);
+        var findUser = userdb.users.find(function (findUsers) { return findUsers.email === decoded_1.email; });
+        var firstName = findUser.firstName, lastName = findUser.lastName;
+        res.status(200).json({ firstName: firstName, lastName: lastName });
     }
 });
 server.use(/^(?!\/auth).*$/, function (req, res, next) {

@@ -10,10 +10,6 @@ const initialState: AuthorizationState = {
   error: null,
   isLoading: false,
   isSuccess: false,
-  user: {
-    firstName: null,
-    lastName: null,
-  },
 };
 
 const { login } = AuthorizationServices;
@@ -42,7 +38,11 @@ const setDefaultValuesRejected = (state: AuthorizationState, error = '') => {
 export const AuthorizationSlice = createSlice({
   name: 'authorization',
   initialState,
-  reducers: {},
+  reducers: {
+    setIsAuth: (state, action) => {
+      state.isAuth = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(login.pending, (state) => {
       setDefaultValuesPending(state);

@@ -4,17 +4,18 @@ import { Provider } from 'react-redux';
 
 import { ThemeProvider } from 'styled-components';
 
+import Application from 'components/application';
+
 import { wrapper } from 'store';
 
 import { tokenServices } from 'store/authorization';
 
 import type { AppProps } from 'next/app';
 
-import { Theme } from '../theme';
 import { GlobalStyles } from '../theme/globalStyles';
 
 function AppWrapper({ Component, ...rest }: AppProps) {
-  const { store } = wrapper.useWrappedStore(rest);
+  const { store, props } = wrapper.useWrappedStore(rest);
   const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
@@ -24,10 +25,10 @@ function AppWrapper({ Component, ...rest }: AppProps) {
 
   return (
     <Provider store={store}>
-      <ThemeProvider theme={Theme}>
+      <Application token={token}>
         <GlobalStyles />
-        <Component {...rest} />
-      </ThemeProvider>
+        <Component {...props} />
+      </Application>
     </Provider>
   );
 }

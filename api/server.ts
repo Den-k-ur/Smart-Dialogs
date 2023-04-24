@@ -3,7 +3,7 @@ import { readFileSync } from 'fs';
 import { json } from 'body-parser';
 import { Request, Response } from 'express';
 import { create, defaults, router } from 'json-server';
-import { JwtPayload, sign, verify } from 'jsonwebtoken';
+import { JsonWebTokenError, JwtPayload, sign, verify } from 'jsonwebtoken';
 
 const server = create();
 
@@ -39,8 +39,18 @@ function createToken(payload: Record<string, string | boolean>) {
   }
 }
 
-function verifyToken(token: string) {
-  return verify(token, SECRET_KEY, (err, decode) => (decode !== undefined ? decode : err));
+function verifyToken(token: string): JwtPayload {
+  try {
+    const decoded = verify(token, SECRET_KEY) as JwtPayload;
+
+    return decoded;
+  } catch (err) {
+    if (err instanceof JsonWebTokenError) {
+      throw new Error('Invalid token');
+    }
+
+    throw err;
+  }
 }
 
 function isAuthenticated({ email, password }: AuthUserTypes) {
@@ -93,6 +103,18 @@ server.post('/auth/refresh-token', (req, res) => {
     const status = 401;
     const message = 'Error: refresh_token is not valid';
     res.status(status).json({ status, message });
+  }
+});
+
+server.get('/user', (req, res) => {
+  const token = req?.headers?.authorization?.split(' ')[1];
+  if (token) {
+    const decoded = verifyToken(token) as JwtPayload;
+    const findUser = userdb.users.find(
+      (findUsers: Record<string, string>) => findUsers.email === decoded.email,
+    );
+    const { firstName, lastName } = findUser;
+    res.status(200).json({ firstName, lastName });
   }
 });
 

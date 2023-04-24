@@ -1,13 +1,6 @@
-import React, { ChangeEvent } from 'react';
-
 import styled from 'styled-components';
 
 import { Theme } from 'theme/theme';
-
-type InputTypes = {
-  placeholder: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-};
 
 export const Input = styled.input`
   max-width: 408px;

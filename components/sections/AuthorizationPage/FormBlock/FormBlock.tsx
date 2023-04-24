@@ -79,7 +79,7 @@ export const FormBlock: FC = () => {
                   rememberMe: isRememberMe,
                 })
               }
-              disabled={!password || formik.errors.email !== ''}
+              disabled={password === '' || formik.errors.email !== undefined}
             >
               Войти
             </StyledButton>
