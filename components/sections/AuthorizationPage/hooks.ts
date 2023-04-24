@@ -7,6 +7,7 @@ import { useAppDispatch } from 'store/hooks';
 type LoginTypes = {
   email: string;
   password: string;
+  rememberMe: boolean;
 };
 
 export const useAuthorization = () => {
@@ -14,8 +15,10 @@ export const useAuthorization = () => {
 
   const [isHide, setHide] = useState(false);
 
-  const handleLogin = useCallback(({ email, password }: LoginTypes) => {
-    dispatch(AuthorizationServices.login({ email: email, password: password }));
+  const handleLogin = useCallback(({ email, password, rememberMe }: LoginTypes) => {
+    dispatch(
+      AuthorizationServices.login({ email: email, password: password, rememberMe: rememberMe }),
+    );
   }, []);
 
   const TogglePassword = useCallback(() => {

@@ -10,9 +10,17 @@ var userdb = JSON.parse((0, fs_1.readFileSync)('api/users.json', 'utf8'));
 server.use((0, json_server_1.defaults)());
 var SECRET_KEY = '123456789';
 var expiresIn = '1h';
+var expiresInRememberMe = '1y';
 var jsonParser = (0, body_parser_1.json)();
 function createToken(payload) {
-    return (0, jsonwebtoken_1.sign)(payload, SECRET_KEY, { expiresIn: expiresIn });
+    if (payload.rememberMe) {
+        console.log('remember');
+        return (0, jsonwebtoken_1.sign)(payload, SECRET_KEY, { expiresIn: expiresInRememberMe });
+    }
+    else {
+        console.log(payload);
+        return (0, jsonwebtoken_1.sign)(payload, SECRET_KEY, { expiresIn: expiresIn });
+    }
 }
 function verifyToken(token) {
     return (0, jsonwebtoken_1.verify)(token, SECRET_KEY, function (err, decode) { return (decode !== undefined ? decode : err); });
@@ -22,16 +30,16 @@ function isAuthenticated(_a) {
     return (userdb.users.findIndex(function (user) { return user.email === email && user.password === password; }) !== -1);
 }
 server.post('/auth/login', jsonParser, function (req, res) {
-    var _a = req.body, email = _a.email, password = _a.password;
+    var _a = req.body, email = _a.email, password = _a.password, rememberMe = _a.rememberMe;
     var currentuser = userdb.users.find(function (user) { return user.email === email && user.password === password; });
-    if (isAuthenticated({ email: email, password: password }) === false) {
+    if (isAuthenticated({ email: email, password: password, rememberMe: rememberMe }) === false) {
         var status_1 = 401;
         var message = 'Incorrect email or password';
         res.status(status_1).json({ status: status_1, message: message });
         return;
     }
-    var access_token = createToken({ email: email, password: password });
-    var refresh_token = createToken({ email: email, password: password });
+    var access_token = createToken({ email: email, password: password, rememberMe: rememberMe });
+    var refresh_token = createToken({ email: email, password: password, rememberMe: rememberMe });
     res.status(200).json({
         access_token: access_token,
         refresh_token: refresh_token,

@@ -11,6 +11,8 @@ const colors = {
 };
 
 const sizes = {
+  xxsm: '350px',
+  xsm: '410px',
   sm: '576px',
   md: '768px',
   lg: '992px',

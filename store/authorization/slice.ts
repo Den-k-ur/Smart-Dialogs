@@ -18,6 +18,10 @@ const initialState: AuthorizationState = {
   error: null,
   isLoading: false,
   isSuccess: false,
+  user: {
+    firstName: null,
+    lastName: null,
+  },
 };
 
 const { login } = AuthorizationServices;

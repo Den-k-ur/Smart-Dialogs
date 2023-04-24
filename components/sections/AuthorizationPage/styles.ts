@@ -18,12 +18,21 @@ export const AuthBlock = styled.div`
   flex-direction: column;
   gap: 72px;
   max-width: 100%;
+  @media screen and (max-width: ${Theme.sizes.lg}) {
+    padding-left: 0;
+  }
 `;
 
 export const StyledIcon = styled.div`
   position: absolute;
   top: 523px;
   left: 615px;
+  @media screen and (max-width: ${Theme.sizes.lg}) {
+    left: 377px;
+  }
+  @media screen and (max-width: ${Theme.sizes.xsm}) {
+    left: 282px;
+  }
 `;
 
 export const InputsBlock = styled.div`
@@ -93,7 +102,12 @@ export const TextBlock = styled.div`
 `;
 
 export const StyledButton = styled(Button)`
-  @media screen and (max-width: ${Theme.sizes.md}) {
+  @media screen and (max-width: ${Theme.sizes.xsm}) {
     padding: 12px 0;
+    width: 100%;
   }
+`;
+
+export const AuthContainer = styled.div`
+  width: 100%;
 `;

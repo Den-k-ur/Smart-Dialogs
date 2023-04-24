@@ -15,6 +15,7 @@ import ShowPasswordIcon from 'public/showPasswordIcon.svg';
 import { useAuthorization } from './hooks';
 import {
   AuthBlock,
+  AuthContainer,
   AuthPageContainer,
   FirstImage,
   HeadAndInputs,
@@ -23,6 +24,7 @@ import {
   SecondHalfBlock,
   SecondImage,
   StyledAuthPage,
+  StyledButton,
   StyledIcon,
   StyledLink,
   TextBlock,
@@ -33,19 +35,22 @@ import {
 export const AuthorizationPage: FC = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [isRememberMe, setRememberMe] = useState(false);
 
   const { handleLogin, TogglePassword, isHide } = useAuthorization();
 
+  console.log(isRememberMe);
+
   return (
-    <StyledAuthPage>
-      <Container>
-        <AuthPageContainer>
-          <AuthBlock>
-            <Logo />
-            <form onSubmit={(e) => e.preventDefault()}>
-              <HeadAndInputs>
-                <Typography variant="style4">Вход</Typography>
-                <div>
+    <AuthContainer>
+      <StyledAuthPage>
+        <Container>
+          <AuthPageContainer>
+            <AuthBlock>
+              <Logo />
+              <form onSubmit={(e) => e.preventDefault()}>
+                <HeadAndInputs>
+                  <Typography variant="style4">Вход</Typography>
                   <InputsAndUnderInputs>
                     <InputsBlock>
                       <Input
@@ -67,42 +72,51 @@ export const AuthorizationPage: FC = () => {
                     </InputsBlock>
                     <UnderInputsBlockAndButton>
                       <UnderInputsBlock>
-                        <Checkbox label="Запомнить меня" />
+                        <Checkbox
+                          onChange={() => setRememberMe(!isRememberMe)}
+                          label="Запомнить меня"
+                        />
                         <StyledLink prefetch href="#">
                           Забыли пароль?
                         </StyledLink>
                       </UnderInputsBlock>
-                      <Button
+                      <StyledButton
                         size="large"
                         variant="primary"
-                        onClick={() => handleLogin({ email: email, password: password })}
+                        onClick={() =>
+                          handleLogin({
+                            email: email,
+                            password: password,
+                            rememberMe: isRememberMe,
+                          })
+                        }
                       >
                         Войти
-                      </Button>
+                      </StyledButton>
                     </UnderInputsBlockAndButton>
                   </InputsAndUnderInputs>
-                </div>
-              </HeadAndInputs>
-            </form>
-          </AuthBlock>
-        </AuthPageContainer>
-      </Container>
-      <SecondHalfBlock>
-        <div>
-          <FirstImage>
-            <img src="Calls.png" />
-            <SecondImage>
-              <img src="Dashboard.png" />
-              <TextBlock>
-                <Typography variant="style2">Вся аналитика в одном кабинете</Typography>
-                <Typography variant="style7">
-                  Теперь просматривать аналитику и создавать отчёты можно без нашей помощи
-                </Typography>
-              </TextBlock>
-            </SecondImage>
-          </FirstImage>
-        </div>
-      </SecondHalfBlock>
-    </StyledAuthPage>
+                </HeadAndInputs>
+              </form>
+            </AuthBlock>
+          </AuthPageContainer>
+        </Container>
+        <SecondHalfBlock>
+          <div>
+            <FirstImage>
+              <img src="Calls.png" />
+              <SecondImage>
+                <img src="Dashboard.png" />
+                <TextBlock>
+                  <Typography variant="style2">Вся аналитика в одном кабинете</Typography>
+                  <Typography variant="style7">
+                    Теперь просматривать аналитику и создавать отчёты можно без нашей помощи
+                  </Typography>
+                </TextBlock>
+              </SecondImage>
+            </FirstImage>
+          </div>
+        </SecondHalfBlock>
+      </StyledAuthPage>
+    </AuthContainer>
   );
 };

@@ -15,18 +15,28 @@ server.use(defaults());
 
 const SECRET_KEY = '123456789';
 const expiresIn = '1h';
+const expiresInRememberMe = '1y';
 
 type AuthUserTypes = {
   email: string;
   password: string;
   firstName?: string;
   lastName?: string;
+  rememberMe: boolean;
 };
 
 const jsonParser = json();
 
-function createToken(payload: Record<string, string>) {
-  return sign(payload, SECRET_KEY, { expiresIn });
+function createToken(payload: Record<string, string | boolean>) {
+  if (payload.rememberMe) {
+    console.log('remember');
+
+    return sign(payload, SECRET_KEY, { expiresIn: expiresInRememberMe });
+  } else {
+    console.log(payload);
+
+    return sign(payload, SECRET_KEY, { expiresIn });
+  }
 }
 
 function verifyToken(token: string) {
@@ -42,11 +52,11 @@ function isAuthenticated({ email, password }: AuthUserTypes) {
 }
 
 server.post('/auth/login', jsonParser, (req: Request, res: Response) => {
-  const { email, password }: AuthUserTypes = req.body;
+  const { email, password, rememberMe }: AuthUserTypes = req.body;
   const currentuser = userdb.users.find(
     (user: Record<string, string>) => user.email === email && user.password === password,
   );
-  if (isAuthenticated({ email, password }) === false) {
+  if (isAuthenticated({ email, password, rememberMe }) === false) {
     const status = 401;
     const message = 'Incorrect email or password';
     res.status(status).json({ status, message });
@@ -54,8 +64,8 @@ server.post('/auth/login', jsonParser, (req: Request, res: Response) => {
     return;
   }
 
-  const access_token = createToken({ email, password });
-  const refresh_token = createToken({ email, password });
+  const access_token = createToken({ email, password, rememberMe });
+  const refresh_token = createToken({ email, password, rememberMe });
   res.status(200).json({
     access_token,
     refresh_token,

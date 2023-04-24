@@ -4,4 +4,8 @@ export type AuthorizationState = {
   isSuccess: boolean;
   isLoading: boolean;
   isAuth: boolean;
+  user: {
+    firstName: string | null;
+    lastName: string | null;
+  };
 };
