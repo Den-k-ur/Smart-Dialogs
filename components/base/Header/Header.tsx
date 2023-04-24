@@ -2,8 +2,6 @@ import React, { FC, useCallback, useState } from 'react';
 
 import { Burger } from 'base/Burger';
 
-import { Button } from 'base/Button';
-
 import { NavMenu } from './components/NavMenu';
 
 import {

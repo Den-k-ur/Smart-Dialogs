@@ -34,7 +34,7 @@ const buttonSizes = {
   },
 };
 
-export const Button = styled.button.attrs({})<ButtonStyles>`
+export const Button = styled.button<ButtonStyles>`
   background-color: ${(props) =>
     props.variant === 'primary' ? Theme.colors.darkBlue : Theme.colors.white};
   color: ${(props) => (props.variant === 'primary' ? Theme.colors.white : Theme.colors.darkBlue)};

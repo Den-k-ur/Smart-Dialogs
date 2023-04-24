@@ -23,7 +23,6 @@ import {
   SecondHalfBlock,
   SecondImage,
   StyledAuthPage,
-  StyledButton,
   StyledIcon,
   StyledLink,
   TextBlock,
@@ -43,7 +42,7 @@ export const AuthorizationPage: FC = () => {
         <AuthPageContainer>
           <AuthBlock>
             <Logo />
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
               <HeadAndInputs>
                 <Typography variant="style4">Вход</Typography>
                 <div>
@@ -73,13 +72,13 @@ export const AuthorizationPage: FC = () => {
                           Забыли пароль?
                         </StyledLink>
                       </UnderInputsBlock>
-                      <StyledButton
+                      <Button
                         size="large"
                         variant="primary"
                         onClick={() => handleLogin({ email: email, password: password })}
                       >
                         Войти
-                      </StyledButton>
+                      </Button>
                     </UnderInputsBlockAndButton>
                   </InputsAndUnderInputs>
                 </div>
