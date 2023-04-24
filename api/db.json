@@ -1,8 +1,10 @@
 {
   "users": [
     {
-      "email": "test@test",
-      "password": "$2a$10$nvwdQ84nEbs7y0lWKeh27OLXxsniGpvHcYMC.ABTe1RaSMadv7b2K",
+      "email": "test@test.com",
+      "password": "$2a$10$yH6zKHn/DAgx8tf5pHr0zu6eChxXBxUOq6A.fmrO91hSklm/S8lFa",
+      "name": "Антон",
+      "secondName": "Зайцев",
       "id": 1
     }
   ]

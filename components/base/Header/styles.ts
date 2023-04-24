@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { Button } from 'base/Button';
 import Logo from 'public/logo.svg';
 
 import { Theme } from 'theme/index';
@@ -68,5 +69,11 @@ export const HeaderStyles = styled.div`
     width: 100%;
     gap: 20px;
     align-items: center;
+  }
+`;
+
+export const StyledButton = styled(Button)`
+  @media screen and (max-width: ${Theme.sizes.md}) {
+    order: -1;
   }
 `;

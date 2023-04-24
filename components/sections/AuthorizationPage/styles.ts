@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import { Button } from 'base/Button';
+
 import { Theme } from 'theme';
 
 export const AuthPageContainer = styled.div`
@@ -43,6 +45,10 @@ export const StyledAuthPage = styled.div`
   display: flex;
   gap: 232px;
   background-color: ${Theme.colors.whiteSmoke};
+  @media screen and (max-width: ${Theme.sizes.lg}) {
+    gap: 0;
+    height: 100vh;
+  }
 `;
 
 export const HeadAndInputs = styled.div`
@@ -64,6 +70,10 @@ export const SecondHalfBlock = styled.div`
   flex: 1 0 auto;
   min-height: 100vh;
   max-width: 100%;
+
+  @media screen and (max-width: ${Theme.sizes.lg}) {
+    display: none;
+  }
 `;
 
 export const FirstImage = styled.div`
@@ -80,4 +90,10 @@ export const SecondImage = styled.div`
 export const TextBlock = styled.div`
   max-width: 496px;
   text-align: center;
+`;
+
+export const StyledButton = styled(Button)`
+  @media screen and (max-width: ${Theme.sizes.md}) {
+    padding: 12px 0;
+  }
 `;

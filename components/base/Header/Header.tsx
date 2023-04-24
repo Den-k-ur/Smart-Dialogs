@@ -10,6 +10,7 @@ import {
   HeaderContainer,
   HeaderStyles,
   NavAndSignIn,
+  StyledButton,
   StyledHeader,
   StyledLogo,
   StyledMobileLogo,
@@ -30,9 +31,9 @@ export const Header: FC = () => {
           <StyledMobileLogo />
           <NavAndSignIn>
             <NavMenu isOpen={isToggle} />
-            <Button size="small" variant="secondary">
+            <StyledButton size="small" variant="secondary">
               Вход
-            </Button>
+            </StyledButton>
             <Burger setOpen={handleSetToggle} open={isToggle} />
           </NavAndSignIn>
         </HeaderStyles>

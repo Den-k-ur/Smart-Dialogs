@@ -23,6 +23,7 @@ import {
   SecondHalfBlock,
   SecondImage,
   StyledAuthPage,
+  StyledButton,
   StyledIcon,
   StyledLink,
   TextBlock,
@@ -72,13 +73,13 @@ export const AuthorizationPage: FC = () => {
                           Забыли пароль?
                         </StyledLink>
                       </UnderInputsBlock>
-                      <Button
+                      <StyledButton
                         size="large"
                         variant="primary"
                         onClick={() => handleLogin({ email: email, password: password })}
                       >
                         Войти
-                      </Button>
+                      </StyledButton>
                     </UnderInputsBlockAndButton>
                   </InputsAndUnderInputs>
                 </div>
