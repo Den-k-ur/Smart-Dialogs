@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
+import { Button } from 'base/Button';
+import Logo from 'public/logo.svg';
+
 import { Theme } from 'theme/index';
 
-import Logo from './images/logo.svg';
 import MobileLogo from './images/mobileLogo.svg';
 
 export const StyledLogo = styled(Logo)`
@@ -67,5 +69,23 @@ export const HeaderStyles = styled.div`
     width: 100%;
     gap: 20px;
     align-items: center;
+  }
+`;
+
+export const StyledButton = styled(Button)`
+  @media screen and (max-width: ${Theme.sizes.md}) {
+    order: -1;
+  }
+`;
+
+export const UserMenuButton = styled(Button)`
+  background-color: inherit;
+  display: flex;
+  gap: 8px;
+  color: ${Theme.colors.darkBlue};
+  padding: 0;
+  text-decoration: underline;
+  :hover {
+    background-color: inherit;
   }
 `;

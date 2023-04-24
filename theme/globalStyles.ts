@@ -51,6 +51,9 @@ export const GlobalStyles = createGlobalStyle`
   html {
     font-family: ${NotoSans.style.fontFamily};
   }
+  *{
+    margin: 0; padding: 0;
+  }
 
 
   &::-webkit-scrollbar {

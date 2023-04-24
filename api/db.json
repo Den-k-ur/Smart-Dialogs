@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$yH6zKHn/DAgx8tf5pHr0zu6eChxXBxUOq6A.fmrO91hSklm/S8lFa",
+      "name": "Антон",
+      "secondName": "Зайцев",
+      "id": 1
+    }
+  ]
+}
