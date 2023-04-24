@@ -43,12 +43,13 @@ export const StyledButton = styled(Button)`
 
 export const StyledIcon = styled.div`
   position: absolute;
-  top: 523px;
-  left: 615px;
-  @media screen and (max-width: ${Theme.sizes.lg}) {
-    left: 377px;
-  }
+  margin-top: 10px;
+  margin-left: 360px;
   @media screen and (max-width: ${Theme.sizes.xsm}) {
-    left: 282px;
+    margin-left: 260px;
   }
+`;
+
+export const StyledError = styled.span`
+  color: ${Theme.colors.error};
 `;

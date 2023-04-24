@@ -14,6 +14,7 @@ export const PasswordInput: FC<PasswordInputTypes> = ({ isHide, placeholder, onC
       placeholder={placeholder}
       type={isHide ? 'password' : 'text'}
       onChange={onChange}
+      required
     />
   );
 };

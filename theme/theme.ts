@@ -4,10 +4,12 @@ const colors = {
   black: '#000',
   white: '#fff',
   darkBlue: '#4F46E5',
+  hoverBlue: '#6d64f5',
   LavenderMist: '#E8E7FF',
   GhostWhite: '#F3F3FF',
   gray: '#E4E4E7',
   whiteSmoke: '#F5F5F5',
+  error: '#DE1818',
 };
 
 const sizes = {

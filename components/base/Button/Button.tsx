@@ -36,4 +36,13 @@ export const Button = styled.button<ButtonStyles>`
   cursor: pointer;
   font-weight: ${(props) => buttonSizes[props.size].fontWeight};
   font-size: ${(props) => buttonSizes[props.size].fontSize};
+  :hover {
+    background-color: ${(props) =>
+      props.variant === 'primary' ? Theme.colors.hoverBlue : Theme.colors.darkBlue};
+  }
+  :disabled {
+    cursor: auto;
+    background-color: ${Theme.colors.gray};
+    border-color: ${Theme.colors.gray};
+  }
 `;

@@ -12,6 +12,8 @@ export const hasError = createSelector(root, (data) => data.hasError);
 
 export const isSuccess = createSelector(root, (data) => data.isSuccess);
 
+export const isAuth = createSelector(root, (data) => data.isAuth);
+
 export const user = createSelector(root, (data) => data.user);
 
 export const firstName = createSelector(user, (data) => data.firstName);

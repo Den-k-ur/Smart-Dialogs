@@ -9,11 +9,13 @@ import ShowPasswordIcon from 'public/showPasswordIcon.svg';
 
 import { useAuthorization } from '../hooks';
 
+import { useFormValidation } from './hooks';
 import {
   HeadAndInputs,
   InputsAndUnderInputs,
   InputsBlock,
   StyledButton,
+  StyledError,
   StyledIcon,
   StyledLink,
   UnderInputsBlock,
@@ -26,6 +28,9 @@ export const FormBlock: FC = () => {
   const [isRememberMe, setRememberMe] = useState(false);
 
   const { handleLogin, TogglePassword, isHide } = useAuthorization();
+  const { formik } = useFormValidation({ email });
+
+  console.log(formik);
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
@@ -34,9 +39,18 @@ export const FormBlock: FC = () => {
         <InputsAndUnderInputs>
           <InputsBlock>
             <Input
+              name="email"
+              id="email"
               placeholder="email"
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                setEmail(e.target.value);
+                formik.handleChange(email);
+              }}
+              onBlur={formik.handleBlur}
             />
+            {formik.touched.email && formik.errors.email && (
+              <StyledError>{formik.errors.email}</StyledError>
+            )}
             <div>
               <StyledIcon onClick={TogglePassword}>
                 {isHide ? <ShowPasswordIcon /> : <HidePasswordIcon />}
@@ -65,6 +79,7 @@ export const FormBlock: FC = () => {
                   rememberMe: isRememberMe,
                 })
               }
+              disabled={!password || formik.errors.email !== ''}
             >
               Войти
             </StyledButton>
