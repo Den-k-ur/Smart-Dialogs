@@ -14,7 +14,7 @@ import { Theme } from '../theme';
 import { GlobalStyles } from '../theme/globalStyles';
 
 function AppWrapper({ Component, ...rest }: AppProps) {
-  const { store, props } = wrapper.useWrappedStore(rest);
+  const { store } = wrapper.useWrappedStore(rest);
   const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {

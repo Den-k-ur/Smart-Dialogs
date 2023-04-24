@@ -4,14 +4,6 @@ import { AuthorizationServices } from './services';
 
 import { AuthorizationState } from './types';
 
-const defultStates = {
-  error: null,
-  isAuth: false,
-  isLoading: false,
-  hasError: false,
-  isSuccess: false,
-};
-
 const initialState: AuthorizationState = {
   hasError: false,
   isAuth: false,

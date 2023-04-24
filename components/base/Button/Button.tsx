@@ -1,15 +1,6 @@
-import React, { FC, ReactElement } from 'react';
-
 import styled from 'styled-components';
 
 import { Theme } from 'theme/index';
-
-type ButtonTypes = {
-  children: ReactElement | ReactElement[] | string;
-  variant: 'primary' | 'secondary';
-  size: 'small' | 'medium' | 'large';
-  onClick?: () => void;
-};
 
 type ButtonStyles = {
   variant: 'primary' | 'secondary';

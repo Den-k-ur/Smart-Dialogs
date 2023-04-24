@@ -1,4 +1,4 @@
-import { FormEvent, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { AuthorizationServices } from 'store/authorization';
 
