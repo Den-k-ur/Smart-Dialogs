@@ -51,6 +51,7 @@ export const StyledNav = styled.nav`
 export const NavAndSignIn = styled.div`
   display: flex;
   flex: 1 0 auto;
+  align-items: center;
   justify-content: space-between;
   @media screen and (max-width: ${Theme.sizes.lg}) {
     justify-content: space-between;

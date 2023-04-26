@@ -10,6 +10,10 @@ const colors = {
   gray: '#E4E4E7',
   whiteSmoke: '#F5F5F5',
   error: '#DE1818',
+  blackRussian: '#111827',
+  yellow: '#EAA43A',
+  cheapBackground: '#E8E7FF',
+  barChart: '#F7B7CD',
 };
 
 const sizes = {
