@@ -7,6 +7,10 @@ import { Theme } from 'theme/index';
 
 import MobileLogo from './images/mobileLogo.svg';
 
+type DropDownTypes = {
+  isOpen: boolean;
+};
+
 export const StyledLogo = styled(Logo)`
   @media screen and (max-width: ${Theme.sizes.md}) {
     display: none;
@@ -80,6 +84,7 @@ export const StyledButton = styled(Button)`
 `;
 
 export const UserMenuButton = styled(Button)`
+  position: relative;
   background-color: inherit;
   display: flex;
   gap: 8px;
@@ -89,4 +94,23 @@ export const UserMenuButton = styled(Button)`
   :hover {
     background-color: inherit;
   }
+`;
+
+export const DropDownContent = styled.div<DropDownTypes>`
+  display: ${(props) => (props.isOpen ? 'flex' : 'none')};
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  background-color: ${Theme.colors.LavenderMist};
+  border-radius: 6px;
+  top: 40px;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  cursor: auto;
+  height: 100px;
+  z-index: 1;
+`;
+
+export const ExitButton = styled(UserMenuButton)`
+  text-decoration: none;
 `;

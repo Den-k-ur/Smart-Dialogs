@@ -15,6 +15,8 @@ import { NavMenu } from './components/NavMenu';
 import { useHeadersRedirect } from './hooks';
 
 import {
+  DropDownContent,
+  ExitButton,
   HeaderContainer,
   HeaderStyles,
   NavAndSignIn,
@@ -27,6 +29,7 @@ import {
 
 export const Header: FC = () => {
   const [isToggle, setToggle] = useState(false);
+  const [isOpen, setOpen] = useState(false);
 
   const isAuth = useSelector(authorizationSelectors.isAuth);
 
@@ -36,7 +39,9 @@ export const Header: FC = () => {
     setToggle(!isToggle);
   }, [isToggle]);
 
-  const { handleLogin } = useHeadersRedirect();
+  const { handleLogin, handleLogout } = useHeadersRedirect();
+
+  console.log(isAuth);
 
   return (
     <HeaderContainer>
@@ -47,10 +52,17 @@ export const Header: FC = () => {
           <NavAndSignIn>
             <NavMenu isOpen={isToggle} />
             {isAuth ? (
-              <UserMenuButton size="small" variant="primary">
-                <Typography variant="styleLink">{FullName}</Typography>
-                <UserIcon />
-              </UserMenuButton>
+              <>
+                <UserMenuButton size="small" variant="primary" onClick={() => setOpen(!isOpen)}>
+                  <Typography variant="styleLink">{FullName}</Typography>
+                  <UserIcon />
+                  <DropDownContent onClick={(e) => e.stopPropagation()} isOpen={isOpen}>
+                    <ExitButton size="small" variant="primary" onClick={handleLogout}>
+                      Выход
+                    </ExitButton>
+                  </DropDownContent>
+                </UserMenuButton>
+              </>
             ) : (
               <StyledButton onClick={handleLogin} size="small" variant="secondary">
                 Вход

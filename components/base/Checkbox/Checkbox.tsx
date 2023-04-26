@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
 
-import { Typography } from 'base/Typography';
-
 import { Indicator, Input, Label, StyledLabel } from './styles';
 
 type CheckBoxTypes = {
