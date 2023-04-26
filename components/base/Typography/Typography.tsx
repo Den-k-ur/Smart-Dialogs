@@ -3,7 +3,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 type TypographyTypes = {
-  variant: 'style1' | 'style2' | 'style3' | 'style4' | 'style5' | 'style6' | 'style7' | 'styleLink';
+  variant:
+    | 'style1'
+    | 'style2'
+    | 'style3'
+    | 'style4'
+    | 'style5'
+    | 'style6'
+    | 'style7'
+    | 'styleLink'
+    | 'chipStyle'
+    | 'titleStyle';
 };
 
 const TypographySizes = {
@@ -46,6 +56,16 @@ const TypographySizes = {
     fontSize: '16px',
     fontWeight: '500',
     lineHeight: '150%',
+  },
+  chipStyle: {
+    fontSize: '10px',
+    fontWeight: '400',
+    lineHeight: '160%',
+  },
+  titleStyle: {
+    fontSize: '16px',
+    fontWeight: '400',
+    lineHeight: '111%',
   },
 };
 

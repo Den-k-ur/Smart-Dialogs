@@ -30,8 +30,6 @@ export const FormBlock: FC = () => {
   const { handleLogin, TogglePassword, isHide } = useAuthorization();
   const { formik } = useFormValidation({ email });
 
-  console.log(formik);
-
   return (
     <form onSubmit={(e) => e.preventDefault()}>
       <HeadAndInputs>
@@ -64,7 +62,13 @@ export const FormBlock: FC = () => {
           </InputsBlock>
           <UnderInputsBlockAndButton>
             <UnderInputsBlock>
-              <Checkbox onChange={() => setRememberMe(!isRememberMe)} label="Запомнить меня" />
+              <Checkbox
+                checked={isRememberMe}
+                name="Запомнить меня"
+                onChange={() => setRememberMe(!isRememberMe)}
+                label="Запомнить меня"
+                id="remember me"
+              />
               <StyledLink prefetch href="#">
                 Забыли пароль?
               </StyledLink>

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import { Provider } from 'react-redux';
 
-import { ThemeProvider } from 'styled-components';
-
 import Application from 'components/application';
 
 import { wrapper } from 'store';

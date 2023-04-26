@@ -20,8 +20,6 @@ export const useFormValidation = (values: { email: string }) => {
   const validate = () => {
     const errors = {} as valuesFormTypes;
 
-    console.log(values);
-
     if (!values.email) {
       errors.email = 'Поле обязательно для заполнения';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {

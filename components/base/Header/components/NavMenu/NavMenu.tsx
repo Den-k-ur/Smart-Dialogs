@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import { useRouter } from 'next/router';
+
 import { Menu } from 'base/Menu';
 import { NavLink } from 'base/NavLink';
 
@@ -11,12 +13,15 @@ type NavMenuTypes = {
 };
 
 export const NavMenu: FC<NavMenuTypes> = ({ isOpen }) => {
+  const router = useRouter();
+  const path = router.pathname;
+
   return (
     <div>
       {isOpen ? (
         <Menu open={isOpen}>
           {NAV_ITEMS.map((item) => (
-            <NavLink href={item.href} key={item.key}>
+            <NavLink page={path} href={item.href} key={item.key}>
               {item.label}
             </NavLink>
           ))}
@@ -24,7 +29,7 @@ export const NavMenu: FC<NavMenuTypes> = ({ isOpen }) => {
       ) : (
         <StyledNav>
           {NAV_ITEMS.map((item) => (
-            <NavLink href={item.href} key={item.key}>
+            <NavLink page={path} href={item.href} key={item.key}>
               {item.label}
             </NavLink>
           ))}

@@ -14,11 +14,9 @@ var expiresInRememberMe = '1y';
 var jsonParser = (0, body_parser_1.json)();
 function createToken(payload) {
     if (payload.rememberMe) {
-        console.log('remember');
         return (0, jsonwebtoken_1.sign)(payload, SECRET_KEY, { expiresIn: expiresInRememberMe });
     }
     else {
-        console.log(payload);
         return (0, jsonwebtoken_1.sign)(payload, SECRET_KEY, { expiresIn: expiresIn });
     }
 }
@@ -105,7 +103,5 @@ server.use(/^(?!\/auth).*$/, function (req, res, next) {
     }
 });
 server.use(serverRouter);
-server.listen(3002, function () {
-    console.log('Run Auth API Server');
-});
+server.listen(3002);
 server.use('/api', serverRouter);

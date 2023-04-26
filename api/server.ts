@@ -29,12 +29,8 @@ const jsonParser = json();
 
 function createToken(payload: Record<string, string | boolean>) {
   if (payload.rememberMe) {
-    console.log('remember');
-
     return sign(payload, SECRET_KEY, { expiresIn: expiresInRememberMe });
   } else {
-    console.log(payload);
-
     return sign(payload, SECRET_KEY, { expiresIn });
   }
 }
@@ -142,8 +138,6 @@ server.use(/^(?!\/auth).*$/, (req, res, next) => {
 
 server.use(serverRouter);
 
-server.listen(3002, () => {
-  console.log('Run Auth API Server');
-});
+server.listen(3002);
 
 server.use('/api', serverRouter);
