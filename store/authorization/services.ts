@@ -10,7 +10,7 @@ export const AuthorizationServices = {
     'authorization/login',
     async (values, { rejectWithValue }) => {
       try {
-        const response = await api.post('http://localhost:3002/auth/login', values);
+        const response = await api.post('https://smart-dialogs.vercel.app/auth/login', values);
         tokenServices.setTokens(response.data.access_token, response.data.refresh_token);
 
         return response.data;
