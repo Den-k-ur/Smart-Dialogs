@@ -38,7 +38,8 @@ export const Button = styled.button<ButtonStyles>`
   font-size: ${(props) => buttonSizes[props.size].fontSize};
   :hover {
     background-color: ${(props) =>
-      props.variant === 'primary' ? Theme.colors.hoverBlue : Theme.colors.darkBlue};
+      props.variant === 'primary' ? Theme.colors.hoverBlue : Theme.colors.LavenderMist};
+    color: ${(props) => (props.variant === 'primary' ? Theme.colors.white : Theme.colors.darkBlue)};
   }
   :disabled {
     cursor: auto;

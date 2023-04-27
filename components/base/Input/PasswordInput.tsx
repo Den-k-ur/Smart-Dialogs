@@ -12,7 +12,7 @@ export const PasswordInput: FC<PasswordInputTypes> = ({ isHide, placeholder, onC
   return (
     <StyledPasswordInput
       placeholder={placeholder}
-      type={isHide ? 'password' : 'text'}
+      type={isHide ? 'text' : 'password'}
       onChange={onChange}
       required
     />

@@ -19,7 +19,7 @@ export const MainPageContentBlock = styled.main`
 export const DescriptionAndPhoto = styled.div`
   display: flex;
   gap: 82px;
-  @media screen and (max-width: ${Theme.sizes.lg}) {
+  @media screen and (max-width: ${Theme.sizes.xl}) {
     flex-direction: column;
   }
 `;
@@ -68,27 +68,27 @@ export const PhotoBlock = styled.div`
   max-width: 450px;
   width: 100%;
   max-height: 532px;
-  height: 100vh;
   background-color: rgba(79, 70, 229, 0.2);
+  height: 100%;
   border-radius: 10px;
-  @media screen and (max-width: ${Theme.sizes.lg}) {
+  @media screen and (max-width: 1400px) {
+    height: 492px;
+    width: 417px;
+  }
+  @media screen and (max-width: ${Theme.sizes.xxl}) {
+    height: 313px;
+    width: 267px;
+  }
+  @media screen and (max-width: ${Theme.sizes.xl}) {
     display: none;
   }
 `;
 
-export const Photo = styled.div`
-  position: absolute;
-  max-width: 450px;
-  max-height: 532px;
-  width: 100%;
-  height: 100vh;
-  background-image: url('/Photo.jpg');
+export const Photo = styled.img`
   border-radius: 10px;
-  margin-left: 40px;
+  width: 100%;
   margin-top: 40px;
-  @media screen and (max-width: ${Theme.sizes.lg}) {
-    display: none;
-  }
+  margin-left: 40px;
 `;
 
 export const DignityCard = styled.div`

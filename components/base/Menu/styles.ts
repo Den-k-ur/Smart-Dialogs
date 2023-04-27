@@ -7,34 +7,32 @@ type MenuTypes = {
 };
 
 export const StyledMenu = styled.nav<MenuTypes>`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: ${Theme.colors.white};
-  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
-  height: 100vh;
-  text-align: left;
-  padding: 2rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: transform 0.3 ease-in-out;
-  @media (max-width: ${Theme.sizes.md}) {
-    width: 100%;
-  }
-
-  a {
-    font-size: 2rem;
-    text-transform: uppercase;
-    padding: 2rem 0;
-    font-weight: bold;
-    letter-spacing: 0.5rem;
-    color: ${({ theme }) => theme.primaryDark};
-    text-decoration: none;
-    transition: color 0.3 linear;
+  display: none;
+  @media screen and (max-width: ${Theme.sizes.md}) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: ${Theme.colors.white};
+    text-align: left;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
     @media (max-width: ${Theme.sizes.md}) {
-      font-size: 1.5rem;
-      text-align: center;
+      width: 100%;
+    }
+
+    a {
+      text-transform: uppercase;
+      padding: 30px 0;
+      font-weight: bold;
+      color: ${Theme.colors.black};
+      text-decoration: none;
+      @media (max-width: ${Theme.sizes.md}) {
+        font-size: 40px;
+        text-align: center;
+      }
     }
   }
 `;

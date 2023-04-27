@@ -13,4 +13,7 @@ export const StyledNav = styled.nav`
     gap: 20px;
     margin-top: 20px;
   }
+  @media screen and (max-width: ${Theme.sizes.xl}) {
+    gap: 30px;
+  }
 `;

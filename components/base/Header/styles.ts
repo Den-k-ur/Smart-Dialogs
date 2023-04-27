@@ -12,6 +12,7 @@ type DropDownTypes = {
 };
 
 export const StyledLogo = styled(Logo)`
+  cursor: pointer;
   @media screen and (max-width: ${Theme.sizes.md}) {
     display: none;
   }
@@ -57,10 +58,9 @@ export const NavAndSignIn = styled.div`
   flex: 1 0 auto;
   align-items: center;
   justify-content: space-between;
-  @media screen and (max-width: ${Theme.sizes.lg}) {
-    justify-content: space-between;
+  @media screen and (max-width: ${Theme.sizes.md}) {
+    justify-content: flex-end;
     align-items: center;
-    gap: 20px;
   }
 `;
 
@@ -75,11 +75,14 @@ export const HeaderStyles = styled.div`
     gap: 20px;
     align-items: center;
   }
+  @media screen and (max-width: ${Theme.sizes.xl}) {
+    gap: 40px;
+  }
 `;
 
 export const StyledButton = styled(Button)`
   @media screen and (max-width: ${Theme.sizes.md}) {
-    order: -1;
+    order: 4;
   }
 `;
 

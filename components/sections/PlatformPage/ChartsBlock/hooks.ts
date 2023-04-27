@@ -46,8 +46,9 @@ export const useCharts = () => {
   const barConfig = {
     type: 'bar',
     data: barData,
-
     options: {
+      responsive: true,
+      maintainAspectRatio: true,
       plugins: {
         legend: {
           display: false,
@@ -78,14 +79,16 @@ export const useCharts = () => {
     type: 'line',
     data: lineData,
     options: {
+      responsive: true,
       pointRadius: 0,
-      bezierCurve: false,
       pointHoverBorderWidth: 2,
       pointHoverBackgroundColor: `${Theme.colors.white}`,
       hover: {
         intersect: false,
       },
       pointHoverRadius: 7,
+      maintainAspectRatio: true,
+      aspectRatio: 645 / 368,
 
       plugins: {
         htmlLegend: {
@@ -97,13 +100,8 @@ export const useCharts = () => {
           external: externalTooltipHandler,
         },
         responsive: true,
-        maintainAspectRatio: false,
         legend: {
-          position: 'bottom' as const,
           display: false,
-          labels: {
-            usePointStyle: true,
-          },
         },
 
         title: {

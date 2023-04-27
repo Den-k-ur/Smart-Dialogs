@@ -10,6 +10,7 @@ export const StyledChart = styled.div`
   position: relative;
   border: 1px solid ${Theme.colors.gray};
   padding: 24px;
+  max-height: 428px;
   max-width: 645px;
   width: 100%;
 `;
@@ -26,9 +27,10 @@ export const StyledIcon = styled.div`
 `;
 
 export const StyledTooltip = styled.div`
+  display: none;
   ::after {
     transform: rotate(180deg);
-    top: 28px;
+    top: 30px;
     left: 50%;
     border: 1px solid ${Theme.colors.gray};
     content: ' ';

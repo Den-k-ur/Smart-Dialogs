@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { authorizationActions, tokenServices } from 'store/authorization';
 
 export const useHeadersRedirect = () => {
+  const [isOpen, setOpen] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -19,5 +20,13 @@ export const useHeadersRedirect = () => {
     tokenServices.removeTokens();
   }, []);
 
-  return { handleLogin, handleLogout };
+  const handleOpenAccMenu = useCallback(() => {
+    setOpen(!isOpen);
+  }, [isOpen]);
+
+  const handleLogoClick = useCallback(() => {
+    router.push('/');
+  }, []);
+
+  return { handleLogin, handleLogout, handleOpenAccMenu, handleLogoClick, isOpen };
 };

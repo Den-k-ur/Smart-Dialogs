@@ -11,4 +11,5 @@ export const StyledDiv = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
+  min-height: 100vh;
 `;

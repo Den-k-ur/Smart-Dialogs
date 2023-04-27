@@ -51,7 +51,7 @@ export const ChartsBlock: FC = () => {
         <div id="legend-container" />
       </StyledChart>
       <StyledBarChart>
-        <StyledTooltip id="chartjs-tooltip"></StyledTooltip>
+        <StyledTooltip id="chartjs-tooltip" />
         <StyledIcon>
           <TooltipSection />
         </StyledIcon>
