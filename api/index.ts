@@ -2,9 +2,9 @@ import axios, { InternalAxiosRequestConfig } from 'axios';
 
 import { tokenServices } from 'store/authorization';
 
-const refresh_URL = 'https://smart-dialogs.vercel.app/refresh-token';
+const refresh_URL = `${process.env.URL_API}refresh-token`;
 const api = axios.create({
-  baseURL: 'https://smart-dialogs.vercel.app',
+  baseURL: process.env.URL_API,
 });
 
 api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
