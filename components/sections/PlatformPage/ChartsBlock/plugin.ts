@@ -11,8 +11,9 @@ export const getOrCreateLegendList = (chart: Chart, id: string) => {
       listContainer = document.createElement('ul');
       listContainer.style.display = 'flex';
       listContainer.style.flexDirection = 'row';
-      listContainer.style.height = '100%';
-      listContainer.style.paddingLeft = '40px';
+      // listContainer.style.height = '100%';
+      listContainer.style.paddingLeft = '24px';
+      listContainer.style.paddingTop = '25px';
       listContainer.style.gap = '40px';
 
       legendContainer.appendChild(listContainer);
@@ -66,7 +67,7 @@ export const htmlLegendPlugin = {
           boxSpan.style.borderColor = item.fillStyle as string;
           boxSpan.style.borderRadius = '10px';
           boxSpan.style.borderWidth = `${item.lineWidth}px`;
-          boxSpan.style.display = 'inline-block';
+          boxSpan.style.display = 'flex';
           boxSpan.style.height = '8px';
           boxSpan.style.marginRight = '10px';
           boxSpan.style.width = '8px';
@@ -155,19 +156,6 @@ export const externalTooltipHandler = (context: ScriptableTooltipContext<'line' 
 
     const tableBody = document.createElement('tbody');
     bodyLines.forEach((body, i) => {
-      const span = document.createElement('span');
-
-      span.style.position = 'absolute';
-
-      span.style.height = '10px';
-      span.style.width = '10px';
-      span.style.display = 'block';
-      span.style.transform = 'rotate(-45deg)';
-      span.style.backgroundColor = `${Theme.colors.gray}`;
-      span.style.top = '20px';
-      span.style.left = '50%';
-      span.style.zIndex = '1';
-
       const tr = document.createElement('tr');
       tr.style.backgroundColor = 'inherit';
       tr.style.borderWidth = '0';
@@ -210,6 +198,7 @@ export const externalTooltipHandler = (context: ScriptableTooltipContext<'line' 
       tooltipEl.style.left = `${chart.canvas.offsetLeft + tooltip.caretX - 30}px`;
       tooltipEl.style.top = `${chart.canvas.offsetTop + tooltip.caretY - 50}px`;
       tooltipEl.style.padding = `4px 8px`;
+      tooltipEl.style.display = 'block';
 
       tooltipEl.style.pointerEvents = 'none';
     }

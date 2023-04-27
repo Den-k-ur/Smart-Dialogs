@@ -12,6 +12,7 @@ import {
   PlatformPageContainer,
   SecondeDescriptionBlock,
   StyledChartsBlock,
+  StyledDescription,
 } from './styles';
 
 export const PlatformPage: FC = () => {
@@ -20,27 +21,25 @@ export const PlatformPage: FC = () => {
       <PlatformPageBlock>
         <DescriptionsBlock>
           <DignityTextBlock>
-            <Typography variant="style1">
-              Вся аналитика <br /> в одном кабинете
-            </Typography>
+            <Typography variant="style1">Вся аналитика в&nbsp;одном кабинете</Typography>
           </DignityTextBlock>
           <SecondeDescriptionBlock>
-            <Typography variant="style6">
-              Отслеживайте работу голосового ассистента в личном кабинете
-            </Typography>
+            <StyledDescription variant="style6">
+              Отслеживайте работу голосового ассистента в&nbsp;личном кабинете
+            </StyledDescription>
           </SecondeDescriptionBlock>
         </DescriptionsBlock>
         <FirstDescriptionBlock>
-          <Typography variant="style6">
+          <MobileSecondDescription>
+            <StyledDescription variant="style6">
+              Отслеживайте работу голосового ассистента в личном кабинете
+            </StyledDescription>
+          </MobileSecondDescription>
+          <StyledDescription variant="style6">
             Уникальные виджеты позволяют настроить <br />
             дашборд под задачи различных подразделений вашей компании
-          </Typography>
+          </StyledDescription>
         </FirstDescriptionBlock>
-        <MobileSecondDescription>
-          <Typography variant="style6">
-            Отслеживайте работу голосового ассистента в личном кабинете
-          </Typography>
-        </MobileSecondDescription>
         <StyledChartsBlock>
           <ChartsBlock />
         </StyledChartsBlock>

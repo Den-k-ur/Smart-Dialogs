@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { StyledBurger } from './styles';
+import { CloseIconContainer, StyledBurger, StyledCloseIcon } from './styles';
 
 type BurgerTypes = {
   open: boolean;
@@ -9,10 +9,15 @@ type BurgerTypes = {
 
 export const Burger: FC<BurgerTypes> = ({ open, setOpen }) => {
   return (
-    <StyledBurger open={open} onClick={() => setOpen(!open)}>
-      <div />
-      <div />
-      <div />
-    </StyledBurger>
+    <>
+      <StyledBurger open={open} onClick={() => setOpen(!open)}>
+        <div />
+        <div />
+        <div />
+      </StyledBurger>
+      <CloseIconContainer open={open} onClick={() => setOpen(false)}>
+        <StyledCloseIcon open={open} />
+      </CloseIconContainer>
+    </>
   );
 };

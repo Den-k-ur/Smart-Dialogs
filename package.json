@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "npx json-server --watch api/db.json -m ./node_modules/json-server-auth --port=3001",
-    "start-auth": "node api/server.js"
+    "start-server": "node api/server.js"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",

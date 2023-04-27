@@ -14,6 +14,7 @@ const colors = {
   yellow: '#EAA43A',
   cheapBackground: '#E8E7FF',
   barChart: '#F7B7CD',
+  darkGray: '#3E3E3E',
 };
 
 const sizes = {
@@ -22,7 +23,8 @@ const sizes = {
   sm: '576px',
   md: '768px',
   lg: '992px',
-  xl: '1200px',
+  xl: '1024px',
+  xxl: '1280px',
 };
 
 export const Theme = {

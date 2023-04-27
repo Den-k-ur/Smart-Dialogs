@@ -45,7 +45,7 @@ export const MainPageContent: FC = () => {
           </ApplicationButton>
         </DescriptionAndApplication>
         <PhotoBlock>
-          <Photo />
+          <Photo src="Photo.jpg" />
         </PhotoBlock>
       </DescriptionAndPhoto>
       <DignityCardBlock>

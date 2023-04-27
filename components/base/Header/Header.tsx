@@ -29,40 +29,44 @@ import {
 
 export const Header: FC = () => {
   const [isToggle, setToggle] = useState(false);
-  const [isOpen, setOpen] = useState(false);
 
   const isAuth = useSelector(authorizationSelectors.isAuth);
 
   const FullName = useSelector(userSelectors.FullName);
 
   const handleSetToggle = useCallback(() => {
+    if (isToggle) {
+      document.body.style.overflow = 'scroll';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+
     setToggle(!isToggle);
   }, [isToggle]);
 
-  const { handleLogin, handleLogout } = useHeadersRedirect();
-
-  console.log(isAuth);
+  const { handleLogin, handleLogout, handleOpenAccMenu, isOpen, handleLogoClick } =
+    useHeadersRedirect();
 
   return (
     <HeaderContainer>
       <StyledHeader>
         <HeaderStyles>
-          <StyledLogo />
+          <div onClick={handleLogoClick}>
+            <StyledLogo />
+          </div>
           <StyledMobileLogo />
           <NavAndSignIn>
             <NavMenu isOpen={isToggle} />
             {isAuth ? (
-              <>
-                <UserMenuButton size="small" variant="primary" onClick={() => setOpen(!isOpen)}>
-                  <Typography variant="styleLink">{FullName}</Typography>
-                  <UserIcon />
-                  <DropDownContent onClick={(e) => e.stopPropagation()} isOpen={isOpen}>
-                    <ExitButton size="small" variant="primary" onClick={handleLogout}>
-                      Выход
-                    </ExitButton>
-                  </DropDownContent>
-                </UserMenuButton>
-              </>
+              <UserMenuButton size="small" variant="primary" onClick={handleOpenAccMenu}>
+                <Typography variant="styleLink">{FullName}</Typography>
+                <UserIcon />
+                <DropDownContent onClick={(e) => e.stopPropagation()} isOpen={isOpen}>
+                  <ExitButton size="small" variant="primary" onClick={handleLogout}>
+                    Выход
+                  </ExitButton>
+                </DropDownContent>
+              </UserMenuButton>
             ) : (
               <StyledButton onClick={handleLogin} size="small" variant="secondary">
                 Вход

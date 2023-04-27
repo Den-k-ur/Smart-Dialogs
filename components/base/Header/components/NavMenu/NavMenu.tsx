@@ -21,7 +21,7 @@ export const NavMenu: FC<NavMenuTypes> = ({ isOpen }) => {
       {isOpen ? (
         <Menu open={isOpen}>
           {NAV_ITEMS.map((item) => (
-            <NavLink page={path} href={item.href} key={item.key}>
+            <NavLink href={item.href} key={item.key}>
               {item.label}
             </NavLink>
           ))}
