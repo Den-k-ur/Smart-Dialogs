@@ -95,6 +95,7 @@ export const UserMenuButton = styled(Button)`
   padding: 0;
   text-decoration: underline;
   :hover {
+    color: ${Theme.colors.hoverBlue};
     background-color: inherit;
   }
 `;
